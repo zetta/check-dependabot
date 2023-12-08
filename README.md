@@ -1,7 +1,7 @@
 # Check for Dependabot Vulnerability Alerts
 
-[![Integration Test](https://github.com/spicyparrot/check-dependabot/actions/workflows/integration.yml/badge.svg?branch=trunk)](https://github.com/spicyparrot/check-dependabot/actions/workflows/integration.yml)
-[![Lint](https://github.com/spicyparrot/check-dependabot/actions/workflows/python.yml/badge.svg)](https://github.com/spicyparrot/check-dependabot/actions/workflows/python.yml)
+[![Integration Test](https://github.com/zetta/check-dependabot/actions/workflows/integration.yml/badge.svg?branch=main)](https://github.com/zetta/check-dependabot/actions/workflows/integration.yml)
+[![Lint](https://github.com/zetta/check-dependabot/actions/workflows/python.yml/badge.svg)](https://github.com/zetta/check-dependabot/actions/workflows/python.yml)
 
 This is a simple python action that uses the [GitHub GraphQL API](https://docs.github.com/en/graphql/reference/objects#repositoryvulnerabilityalert) to check how many open Dependabot vulnerability alerts are present on a repository.
 
@@ -24,14 +24,14 @@ jobs:
     steps:
       - name: Check Dependabot Alerts
         id: alerts
-        uses: spicyparrot/check-dependabot@v1.2.0
+        uses: zetta/check-dependabot@v1.0.0
         with:
-          github_personal_token: ${{ secrets.ACTIONS_ACCESS_TOKEN }}  
+          github_personal_token: ${{ secrets.ACTIONS_ACCESS_TOKEN }}
 
       - name: Error Exit
         if: steps.alerts.outputs.total_alerts > 0
         run: echo "::error ::Open Vulnerability Alerts Found" && exit 1
-      
+
       - name: Deploy
         run: |
           printf "No open vulnerabilities found. Running deployment now..."
