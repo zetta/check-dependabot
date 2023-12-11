@@ -1,4 +1,4 @@
-name: "Check Dependabot Alerts"
+name: "Check Dependabot Alerts for Compliance"
 description: "Check how many open Dependabot alerts are present on the current repository."
 author: "Craig Bath"
 branding:
@@ -7,6 +7,8 @@ branding:
 inputs:
   github_personal_token:
     description: "GitHub Personal Access Token"
+  complicance:
+    description: "Compliance document"
 outputs:
   total_alerts:
     description: "Total Open Alerts"
