@@ -7,7 +7,7 @@ branding:
 inputs:
   github_personal_token:
     description: "GitHub Personal Access Token"
-  complicance:
+  compliance:
     description: "Compliance document"
 outputs:
   total_alerts:
